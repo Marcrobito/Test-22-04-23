@@ -32,7 +32,7 @@ class Coordinator: ObservableObject {
     @Published var overlay: Overlay?
     
     func push(_ page: Page){
-        path.push(page)
+        path.append(page)
     }
     
     func present(_ overlay:Overlay){
@@ -40,7 +40,7 @@ class Coordinator: ObservableObject {
     }
     
     func pop(){
-        path.remove()
+        path.removeLast()
     }
     
     func dismissOverLay(){

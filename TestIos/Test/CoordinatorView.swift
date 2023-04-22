@@ -16,10 +16,11 @@ struct CoordinatorView: View {
                 .navigationDestination(for: Page.self){ page in
                     coordinator.build(page: page)
                 }
-                .overlay($coordinator.overlay) { overlay in
-                    coordinator.buil
+                .fullScreenCover(item: $coordinator.overlay){ overlay in
+                    coordinator.build(overlay: overlay)
                 }
         }
+        .environmentObject(coordinator)
     }
 }
 

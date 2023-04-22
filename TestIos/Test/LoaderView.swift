@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LoaderView: View {
     var body: some View {
-        Text("Hello, World!")
+        Text("Loading").background(Color.black.opacity(0.6))
     }
 }
 

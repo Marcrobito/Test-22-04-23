@@ -8,9 +8,25 @@
 import SwiftUI
 
 struct SearchView: View {
+    
+    @State private var product: String = ""
+    
+    @ObservedObject var viewModel = SearchViewModel()
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack(alignment: .leading) {
+            HStack{
+                TextField("Search", text: $product)
+                Button(action: {
+                    viewModel.queryProduct(product)
+                }, label: {
+                    Text("Search")
+                })
+            }.padding()
+            
+            ProductsListView(items: viewModel.items)
+            
+        }
     }
 }
 

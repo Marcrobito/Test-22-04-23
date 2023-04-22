@@ -24,6 +24,8 @@
 		8DB1739F29F47DAE002A0BE7 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB1739E29F47DAE002A0BE7 /* SearchViewModel.swift */; };
 		8DB173A129F47F55002A0BE7 /* StoreResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB173A029F47F55002A0BE7 /* StoreResponse.swift */; };
 		8DB173A329F4824D002A0BE7 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB173A229F4824D002A0BE7 /* Repository.swift */; };
+		8DCE232829F4A2D600B359EF /* ProductListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DCE232729F4A2D600B359EF /* ProductListView.swift */; };
+		8DCE232A29F4A3AB00B359EF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DCE232929F4A3AB00B359EF /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,8 @@
 		8DB1739E29F47DAE002A0BE7 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		8DB173A029F47F55002A0BE7 /* StoreResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreResponse.swift; sourceTree = "<group>"; };
 		8DB173A229F4824D002A0BE7 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		8DCE232729F4A2D600B359EF /* ProductListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListView.swift; sourceTree = "<group>"; };
+		8DCE232929F4A3AB00B359EF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C42BA8878B381D625623B78A /* Pods-TestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestTests.debug.xcconfig"; path = "Target Support Files/Pods-TestTests/Pods-TestTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CEA1B63CA331A7F84F3DC86A /* Pods-Test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test.debug.xcconfig"; path = "Target Support Files/Pods-Test/Pods-Test.debug.xcconfig"; sourceTree = "<group>"; };
 		DFB3986F366BA07ED0998AC8 /* Pods-Test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test.release.xcconfig"; path = "Target Support Files/Pods-Test/Pods-Test.release.xcconfig"; sourceTree = "<group>"; };
@@ -127,11 +131,13 @@
 			children = (
 				8D2B0AA529F428D5004E3999 /* TestApp.swift */,
 				8DB173A029F47F55002A0BE7 /* StoreResponse.swift */,
+				8DCE232929F4A3AB00B359EF /* Extensions.swift */,
 				8DB1739E29F47DAE002A0BE7 /* SearchViewModel.swift */,
 				8DB173A229F4824D002A0BE7 /* Repository.swift */,
 				8D2B0ACF29F47492004E3999 /* Coordinator.swift */,
 				8D2B0AD329F4791B004E3999 /* CoordinatorView.swift */,
 				8D2B0AD129F47891004E3999 /* SearchView.swift */,
+				8DCE232729F4A2D600B359EF /* ProductListView.swift */,
 				8D2B0AD529F47AB0004E3999 /* LoaderView.swift */,
 				8D2B0AA729F428D5004E3999 /* ContentView.swift */,
 				8D2B0AA929F428D8004E3999 /* Assets.xcassets */,
@@ -430,10 +436,12 @@
 				8DB1739F29F47DAE002A0BE7 /* SearchViewModel.swift in Sources */,
 				8DB173A129F47F55002A0BE7 /* StoreResponse.swift in Sources */,
 				8D2B0AD429F4791B004E3999 /* CoordinatorView.swift in Sources */,
+				8DCE232829F4A2D600B359EF /* ProductListView.swift in Sources */,
 				8D2B0AA829F428D5004E3999 /* ContentView.swift in Sources */,
 				8D2B0AA629F428D5004E3999 /* TestApp.swift in Sources */,
 				8D2B0AD029F47492004E3999 /* Coordinator.swift in Sources */,
 				8D2B0AD629F47AB0004E3999 /* LoaderView.swift in Sources */,
+				8DCE232A29F4A3AB00B359EF /* Extensions.swift in Sources */,
 				8DB173A329F4824D002A0BE7 /* Repository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -604,7 +612,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -635,7 +643,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

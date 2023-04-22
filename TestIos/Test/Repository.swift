@@ -18,21 +18,46 @@ class Repository {
     
     
     
-    func fetchProduct(product: String) {
+    func fetchProduct(product: String, completition: @escaping ([Item]?)-> Void) {
+        print("request")
         let request = AF.request("\( BASE_URL)search?&query=\(product)&page=\(currentPage)", headers: headers)
         request.validate().responseJSON { response in
+            print("response")
+            switch response.result {
+            case .success:
+                do {
+                    print("do")
+                    let result = try JSONDecoder().decode(StoreResponse.self, from: response.data!)
+                    print(result)
+                    completition(result.item.props.pageProps.initialData.searchResult.itemStacks[0].items)
+                }catch {
+                    print("catch")
+                    print(error)
+                    completition(nil)
+                }
+            case .failure(let error):
+                print(error)
+                completition(nil)
+            }
+        }
+    }
+    
+    /*func fetchProduct(for product: String) async -> [Item]? {
+        let request = AF.request("\( BASE_URL)search?&query=\(product)&page=\(currentPage)", headers: headers)
+        await request.validate().responseJSON { response in
             switch response.result {
             case .success:
                 do{
                     let result = try JSONDecoder().decode(StoreResponse.self, from: response.data!)
-                    
+                    self.maxPages = result.item.props.initialData.searchResult.paginationV2.maxPage
+                     return result.item.props.initialData.searchResult.itemStacks[0]
                 }catch{
-                    
+                     return nil
                 }
             case .failure(let error):
                 print(error)
-                
+                 return nil
             }
         }
-    }
+    }*/
 }
