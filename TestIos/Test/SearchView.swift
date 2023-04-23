@@ -14,6 +14,7 @@ struct SearchView: View {
     @ObservedObject var viewModel = SearchViewModel()
     
     var body: some View {
+        
         VStack(alignment: .leading) {
             HStack{
                 TextField("Search", text: $product)
@@ -24,7 +25,28 @@ struct SearchView: View {
                 })
             }.padding()
             
-            ProductsListView(items: viewModel.items)
+            if !viewModel.queries.isEmpty {
+                ScrollView(.horizontal){
+                    HStack(spacing: 20) {
+                        ForEach(viewModel.queries, id:\.self) { query in
+                            Button(action: {
+                                viewModel.queryProduct(query.query)
+                            }, label: {
+                                Text(query.query)
+                            })
+                        }
+                    }
+                }
+            }
+            
+            List(viewModel.items){ item in
+                ItemRow(item: item).onAppear(){
+                    if viewModel.items.last == item {
+                        viewModel.getNextPage(product)
+                    }
+                }
+            }
+            
             
         }
     }

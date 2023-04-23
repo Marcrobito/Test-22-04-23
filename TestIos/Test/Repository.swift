@@ -13,13 +13,18 @@ class Repository {
     private let BASE_URL = "https://00672285.us-south.apigw.appdomain.cloud/demo-gapsi/"
     private let headers: HTTPHeaders = ["X-IBM-Client-Id":"adb8204d-d574-4394-8c1a-53226a40876e"]
     private var currentPage = 1
-    private var maxPages:Int? = nil
+    private var maxPages:Int = -1
     private var currentQuery:String = ""
     
     
     
     func fetchProduct(product: String, completition: @escaping ([Item]?)-> Void) {
-        print("request")
+        if self.currentPage < self.maxPages && product == self.currentQuery{
+            currentPage += 1
+        }
+        
+        self.currentQuery = product
+        
         let request = AF.request("\( BASE_URL)search?&query=\(product)&page=\(currentPage)", headers: headers)
         request.validate().responseJSON { response in
             print("response")
@@ -29,6 +34,7 @@ class Repository {
                     print("do")
                     let result = try JSONDecoder().decode(StoreResponse.self, from: response.data!)
                     print(result)
+                    self.maxPages = result.item.props.pageProps.initialData.searchResult.paginationV2.maxPage
                     completition(result.item.props.pageProps.initialData.searchResult.itemStacks[0].items)
                 }catch {
                     print("catch")
